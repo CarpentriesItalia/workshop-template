@@ -6,7 +6,7 @@ layout: workshop      # DON'T CHANGE THIS.
 venue: "FIXME"        # brief name of the institution that hosts the workshop without address (e.g., "Euphoric State University")
 address: "FIXME"      # full street address of workshop (e.g., "Room A, 123 Forth Street, Blimingen, Euphoria"), videoconferencing URL, or 'online'
 country: "FIXME"      # lowercase two-letter ISO country code such as "fr" (see https://en.wikipedia.org/wiki/ISO_3166-1#Current_codes) for the institution that hosts the workshop
-language: "FIXME"     # lowercase two-letter ISO language code such as "fr" (see https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) for the
+language: "it"     # lowercase two-letter ISO language code such as "fr" (see https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) for the
 latitude: "45"        # decimal latitude of workshop venue (use https://www.latlong.net/)
 longitude: "-1"       # decimal longitude of the workshop venue (use https://www.latlong.net)
 humandate: "FIXME"    # human-readable dates for the workshop (e.g., "Feb 17-18, 2020")
@@ -101,7 +101,7 @@ displayed if the 'eventbrite' field in the header is not set.
 {% endif %}
 
 
-<h2 id="general">General Information</h2>
+<h2 id="general">Informazioni generali</h2>
 
 {% comment %}
 INTRODUCTION
@@ -158,15 +158,14 @@ address.
 </p>
 {% elsif online == "true_public" %}
 <p id="where">
-  <strong>Where:</strong>
-  online at <a href="{{page.address}}">{{page.address}}</a>.
-  If you need a password or other information to access the training,
-  the instructor will pass it on to you before the workshop.
+  <strong>Dove:</strong>
+  online all'indirizzo <a href="{{page.address}}">{{page.address}}</a>.
+  Gli istruttori comunicheranno eventuali password e altre informazioni utili prima del seminario.
 </p>
 {% elsif online == "true_private" %}
 <p id="where">
-  <strong>Where:</strong> This training will take place online.
-  The instructors will provide you with the information you will need to connect to this meeting.
+  <strong>Dove:</strong> Il laboratorio si svolger&agrave; online. Gli istruttori comunicheranno
+  le informazioni necessarie per connettersi al laboratorio.
 </p>
 {% endif %}
 
@@ -177,7 +176,7 @@ This block displays the date and links to Google Calendar.
 {% endcomment %}
 {% if page.humandate %}
 <p id="when">
-  <strong>When:</strong>
+  <strong>Quando:</strong>
   {{page.humandate}}.
   {% include workshop_calendar.html %}
 </p>
@@ -189,15 +188,14 @@ SPECIAL REQUIREMENTS
 Modify the block below if there are any special requirements.
 {% endcomment %}
 <p id="requirements">
-  <strong>Requirements:</strong>
+  <strong>Requisiti:</strong>
   {% if online == "false" %}
     Participants must bring a laptop with a
     Mac, Linux, or Windows operating system (not a tablet, Chromebook, etc.) that they have administrative privileges on.
   {% else %}
-    Participants must have access to a computer with a
-    Mac, Linux, or Windows operating system (not a tablet, Chromebook, etc.) that they have administrative privileges on.
+    I partecipanti devono avere a propria disposizione un computer con sistema operativo Mac, Linux o Windows (l'utilizzo di tablet, Chromebook, etc. non &egrave; supportato) sul quale hanno diritti d'amministratore.
   {% endif %}
-  They should have a few specific software packages installed (listed <a href="#setup">below</a>).
+   I partecipanti dovranno avere installato alcuni specifici software <strong>prima</strong> dell'inizio del laboratorio (per maggiori dettagli, vedere la lista <a href="#setup">in basso</a>).
 </p>
 
 {% comment %}
@@ -207,7 +205,7 @@ Modify the block below if there are any barriers to accessibility or
 special instructions.
 {% endcomment %}
 <p id="accessibility">
-  <strong>Accessibility:</strong>
+  <strong>Accessibilit&agrave;:</strong>
 {% if online == "false" %}
   We are committed to making this workshop
   accessible to everybody. The workshop organizers have checked that:
@@ -225,9 +223,8 @@ special instructions.
   attempt to provide them.
 </p>
 {% else %}
-  We are dedicated to providing a positive and accessible learning environment for all. Please
-  notify the instructors in advance of the workshop if you require any accommodations or if there is
-  anything we can do to make this workshop more accessible to you.
+  Ci impegniamo ad offrire un ambiente d'apprendimento positivo e aperto a tutti. Non esitate
+  a contattare gli istruttori prima e durante il laboratorio nel caso abbiate bisogni particolari o suggerimenti.
 </p>
 {% endif %}
 
@@ -237,8 +234,8 @@ CONTACT EMAIL ADDRESS
 Display the contact email address set in the configuration file.
 {% endcomment %}
 <p id="contact">
-  <strong>Contact:</strong>
-  Please email
+  <strong>Contatti:</strong>
+  Nel caso abbiate domande, contattateci via email a
   {% if page.email %}
   {% for email in page.email %}
   {% if forloop.last and page.email.size > 1 %}
@@ -253,13 +250,12 @@ Display the contact email address set in the configuration file.
   {% else %}
   to-be-announced
   {% endif %}
-  for more information.
 </p>
 
 <p id="roles">
-  <strong>Roles:</strong>
-  To learn more about the roles at the workshop (who will be doing what),
-  refer to <a href="https://carpentries.org/workshop_faq/#what-are-the-roles-of-everyone-participating-in-a-workshop">our Workshop FAQ</a>.
+  <strong>Ruoli:</strong>
+  Per sapere di pi&ugrave; riguardo i ruoli durante il laboratorio (chi fa cosa),
+  visitate <a href="https://carpentries.org/workshop_faq/#what-are-the-roles-of-everyone-participating-in-a-workshop">le FAQ del laboratorio</a>.
 </p>
 
 {% comment %}
@@ -288,15 +284,16 @@ Edit the text to match who can attend the workshop. For instance:
 {% comment%}
 CODE OF CONDUCT
 {% endcomment %}
-<h2 id="code-of-conduct">Code of Conduct</h2>
+<h2 id="code-of-conduct">Codice di condotta</h2>
 
 <p>
-Everyone who participates in Carpentries activities is required to conform to the <a href="https://docs.carpentries.org/topic_folders/policies/code-of-conduct.html">Code of Conduct</a>. This document also outlines how to report an incident if needed.
+Ogni partecipante ad attivit&agrave; Carpentries deve rispettarne il
+<a href="https://docs.carpentries.org/topic_folders/policies/code-of-conduct.html">codice di condotta</a>. Nel documento che trovate al link precedente troverete anche indicazioni su come segnalare eventuali incidenti legati al codice di condotta.
 </p>
 
 <p class="text-center">
   <a href="https://goo.gl/forms/KoUfO53Za3apOuOK2">
-    <button type="button" class="btn btn-info">Report a Code of Conduct Incident</button>
+    <button type="button" class="btn btn-info">Segnala un incidente legato al codice di condotta</button>
   </a>
 </p>
 <hr/>
@@ -316,10 +313,10 @@ Note we also have a CodiMD (the open-source version of HackMD)
 available at https://codimd.carpentries.org
 {% endcomment %}
 {% if page.collaborative_notes %}
-<h2 id="collaborative_notes">Collaborative Notes</h2>
+<h2 id="collaborative_notes">Appunti condivisi</h2>
 
 <p>
-We will use this <a href="{{ page.collaborative_notes }}">collaborative document</a> for chatting, taking notes, and sharing URLs and bits of code.
+A questo <a href="{{ page.collaborative_notes }}">link</a>, troverete un documento editabile da tutti i partecipanti che useremo per prendere appunti, interagire, condividere siti web utili e codice.
 </p>
 <hr/>
 {% endif %}
@@ -328,8 +325,8 @@ We will use this <a href="{{ page.collaborative_notes }}">collaborative document
 {% comment %}
 SURVEYS - DO NOT EDIT SURVEY LINKS
 {% endcomment %}
-<h2 id="surveys">Surveys</h2>
-<p>Please be sure to complete these surveys before and after the workshop.</p>
+<h2 id="surveys">Questionari</h2>
+<p>Vi chiediamo cortesemente di rispondere ai due questionari seguenti (prima e dopo il laboratorio).</p>
 {% if site.carpentry == "pilot" %}
 <p><a href="{{ site.pilot_pre_survey }}">Pre-workshop Survey</a></p>
 <p><a href="{{ site.pilot_post_survey }}">Post-workshop Survey</a></p>
@@ -372,7 +369,7 @@ of code below the Schedule `<h2>` header below with
 `{% include custom-schedule.html %}`.
 {% endcomment %}
 
-<h2 id="schedule">Schedule</h2>
+<h2 id="schedule">Programma</h2>
 
 {% if site.carpentry == "swc" %}
 {% include swc/schedule.html %}
@@ -404,10 +401,10 @@ please preview your site before committing, and make sure to run
 'tools/check' as well.
 {% endcomment %}
 
-<h2 id="setup">Setup</h2>
+<h2 id="setup">Preparazione degli strumenti</h2>
 
 <p>
-  To participate in a
+  Per partecipare in un laboratorio
   {% if site.carpentry == "swc" %}
   Software Carpentry
   {% elsif site.carpentry == "dc" %}
@@ -415,14 +412,13 @@ please preview your site before committing, and make sure to run
   {% elsif site.carpentry == "lc" %}
   Library Carpentry
   {% endif %}
-  workshop,
-  you will need access to software as described below.
-  In addition, you will need an up-to-date web browser.
+  ,
+  &grave; necessario avere accesso ai software descritti pi&ugrave; in basso. In pi&ugrave;,
+  &grave; necessario avere a disposizione un browser internet aggiornato.
 </p>
 <p>
-  We maintain a list of common issues that occur during installation as a reference for instructors
-  that may be useful on the
-  <a href = "{{site.swc_github}}/workshop-template/wiki/Configuration-Problems-and-Solutions">Configuration Problems and Solutions wiki page</a>.
+  Potete trovare una lista di problemi comuni in fase di installazione, che aggiorniamo regolarmente come riferimento per gli istruttori, alla pagina
+  <a href = "{{site.swc_github}}/workshop-template/wiki/Configuration-Problems-and-Solutions"> wiki Problemi e soluzioni di installazione e configurazione</a>.
 </p>
 
 {% comment %}
