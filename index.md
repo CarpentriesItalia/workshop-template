@@ -413,8 +413,8 @@ please preview your site before committing, and make sure to run
   Library Carpentry
   {% endif %}
   ,
-  &grave; necessario avere accesso ai software descritti pi&ugrave; in basso. In pi&ugrave;,
-  &grave; necessario avere a disposizione un browser internet aggiornato.
+  &egrave; necessario avere accesso ai software descritti pi&ugrave; in basso. In pi&ugrave;,
+  &egrave; necessario avere a disposizione un browser internet aggiornato.
 </p>
 <p>
   Potete trovare una lista di problemi comuni in fase di installazione, che aggiorniamo regolarmente come riferimento per gli istruttori, alla pagina
